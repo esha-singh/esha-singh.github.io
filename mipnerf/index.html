@@ -1,310 +1,470 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esha Singh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text-primary: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --text-muted: #6b7280;
+      --accent: #2d8659;
+      --accent-hover: #236b47;
+      --accent-green: #2d8659;
+      --accent-purple: #7c3aed;
+      --accent-blue: #2563eb;
+      --bg: #f8f9fc;
+      --card-bg: #fff;
+      --border: #e0e2ea;
+      --highlight-bg: #ecfdf5;
+    }
 
-<!DOCTYPE html>
-<html>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<head lang="en">
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    <title>mip-NeRF</title>
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
 
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    /* ── NAV ── */
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 40px 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 28px;
+    }
+    nav a {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    nav a:hover {
+      color: var(--text-primary);
+      text-decoration: none;
+      border-bottom-color: var(--accent-purple);
+    }
+    nav a.active {
+      color: var(--text-primary);
+      border-bottom-color: var(--accent-purple);
+    }
 
-    <!-- <base href="/"> -->
+    /* ── HERO ── */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 40px 40px;
+      display: flex;
+      gap: 56px;
+      align-items: flex-start;
+    }
 
-        <!--FACEBOOK-->
-    <meta property="og:image" content="https://jonbarron.info/mipnerf/img/rays_square.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="682">
-    <meta property="og:image:height" content="682">
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jonbarron.info/mipnerf/"/>
-    <meta property="og:title" content="mip-NeRF" />
-    <meta property="og:description" content="Project page for Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields." />
+    .hero-photo {
+      flex-shrink: 0;
+      width: 240px;
+    }
+    .hero-photo img {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
 
-        <!--TWITTER-->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="mip-NeRF" />
-    <meta name="twitter:description" content="Project page for Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields." />
-    <meta name="twitter:image" content="https://jonbarron.info/mipnerf/img/rays_square.png" />
+    .hero-text h1 {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
 
+    .hero-text p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
 
-<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
-  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
-    <!-- Place favicon.ico in the root directory -->
+    .hero-links {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .hero-links a {
+      display: inline-block;
+      padding: 6px 18px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: all 0.2s;
+    }
+    .hero-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--highlight-bg);
+    }
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
-    <link rel="stylesheet" href="css/app.css">
+    /* ── SECTIONS ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    section { margin-bottom: 56px; }
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
-    
-    <script src="js/app.js"></script>
+    h2 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+    }
+
+    /* Alternating cool tones on section headers */
+    section:nth-of-type(2) h2 { border-bottom-color: var(--accent-purple); }
+    section:nth-of-type(3) h2 { border-bottom-color: var(--accent-green); }
+
+    /* ── NEWS ── */
+    .news-item {
+      display: flex;
+      gap: 20px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.05rem;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-date {
+      flex-shrink: 0;
+      width: 150px;
+      font-weight: 600;
+      color: var(--accent-purple);
+      font-size: 0.95rem;
+    }
+
+    /* ── RESEARCH ── */
+    .research-intro {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 780px;
+    }
+
+    .paper {
+      display: flex;
+      gap: 28px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .paper:last-child { border-bottom: none; }
+
+    .paper-thumb {
+      flex-shrink: 0;
+      width: 160px;
+    }
+    .paper-thumb img {
+      width: 160px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .paper-info { flex: 1; }
+
+    .paper-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .paper-title a { color: var(--text-primary); }
+    .paper-title a:hover { color: var(--accent); }
+
+    .paper-authors {
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+    .paper-authors strong { color: var(--text-primary); }
+
+    .paper-venue {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-green);
+      margin-bottom: 8px;
+    }
+    .paper-venue .oral { color: #dc2626; }
+
+    .paper-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .paper-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-right: 14px;
+      color: var(--accent-purple);
+    }
+    .paper-links a:hover { color: var(--accent); }
+
+    /* ── TEACHING ── */
+    .teaching-list {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+    }
+    .teaching-list p { margin-bottom: 8px; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 40px 20px 30px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .hero {
+        flex-direction: column;
+        padding: 36px 20px 24px;
+        gap: 28px;
+      }
+      .hero-photo { width: 180px; }
+      .hero-photo img { width: 180px; height: 180px; }
+      .hero-text h1 { font-size: 2.2rem; }
+      .container { padding: 0 20px; }
+      .paper { flex-direction: column; gap: 14px; }
+      .paper-thumb { width: 100%; }
+      .paper-thumb img { width: 100%; max-width: 240px; height: auto; }
+      .news-item { flex-direction: column; gap: 2px; }
+      .news-date { width: auto; }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container" id="main">
-        <div class="row">
-            <h2 class="col-md-12 text-center">
-                <b>Mip-NeRF</b>: A Multiscale Representation <br> for Anti-Aliasing Neural Radiance Fields</br> 
-                <small>
-                    ICCV 2021 (Oral, Best Paper Honorable Mention)
-                </small>
-            </h2>
-        </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <ul class="list-inline">
-                    <li>
-                        <a href="https://jonbarron.info/">
-                          Jonathan T. Barron
-                        </a>
-                        </br>Google
-                    </li>
-                    <li>
-                        <a href="http://bmild.github.io/">
-                            Ben Mildenhall
-                        </a>
-                        </br>Google
-                    </li>
-                    <li>
-                        <a href="http://matthewtancik.com/">
-                          Matthew Tancik
-                        </a>
-                        </br>UC Berkeley
-                    </li><br>
-                    <li>
-                        <a href="https://phogzone.com/">
-                          Peter Hedman
-                        </a>
-                        </br>Google
-                    </li>
-                    <li>
-                        <a href="http://www.ricardomartinbrualla.com/">
-                          Ricardo Martin-Brualla
-                        </a>
-                        </br>Google
-                    </li>
-                    <li>
-                        <a href="https://pratulsrinivasan.github.io/">
-                          Pratul P. Srinivasan
-                        </a>
-                        </br>Google
-                    </li>
-                </ul>
-            </div>
-        </div>
 
+  <!-- ══════ NAV ══════ -->
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+  </nav>
 
-        <div class="row">
-                <div class="col-md-4 col-md-offset-4 text-center">
-                    <ul class="nav nav-pills nav-justified">
-                        <li>
-                            <a href="https://arxiv.org/abs/2103.13415">
-                            <image src="img/mip_paper_image.jpg" height="60px">
-                                <h4><strong>Paper</strong></h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://youtu.be/EpH175PY1A0">
-                            <image src="img/youtube_icon.png" height="60px">
-                                <h4><strong>Video</strong></h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/google/mipnerf">
-                            <image src="img/github.png" height="60px">
-                                <h4><strong>Code</strong></h4>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-        </div>
-
-
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Abstract
-                </h3>
-                <image src="img/rays.png" class="img-responsive" alt="overview"><br>
-                <p class="text-justify">
-The rendering procedure used by neural radiance fields (NeRF) samples a scene with a single ray per pixel and may therefore produce renderings that are excessively blurred or aliased when training or testing images observe scene content at different resolutions. The straightforward solution of supersampling by rendering with multiple rays per pixel is impractical for NeRF, because rendering each ray requires querying a multilayer perceptron hundreds of times. Our solution, which we call "mip-NeRF" (à la "mipmap"), extends NeRF to represent the scene at a continuously-valued scale.
-By efficiently rendering anti-aliased conical frustums instead of rays, mip-NeRF reduces objectionable aliasing artifacts and significantly improves NeRF's ability to represent fine details, while also being 7% faster than NeRF and half the size.
-Compared to NeRF, mip-NeRF reduces average error rates by 17% on the dataset presented with NeRF and by 60% on a challenging multiscale variant of that dataset that we present. mip-NeRF is also able to match the accuracy of a brute-force supersampled NeRF on our multiscale dataset while being 22x faster.
-                </p>
-            </div>
-        </div>
-
-
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Video
-                </h3>
-                <div class="text-center">
-                    <div style="position:relative;padding-top:56.25%;">
-                        <iframe src="https://www.youtube.com/embed/EpH175PY1A0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Integrated Positional Encoding
-                </h3>
-                <p class="text-justify">
-                    Typical positional encoding (as used in Transformer networks and Neural Radiance Fields) maps a single point in space to a feature vector, where each element is generated by a sinusoid with an exponentially increasing frequency:
-                </p>
-                <p style="text-align:center;">
-                    <image src="img/pe_seq_eqn_pad.png" height="50px" class="img-responsive">
-                </p>
-                <video id="v0" width="100%" autoplay loop muted>
-                  <source src="img/pe_anim_horiz.mp4" type="video/mp4" />
-                </video>
-                <p class="text-justify">
-                    Here, we show how these feature vectors change as a function of a point moving in 1D space.
-                    <br><br>
-                    Our <em>integrated positional encoding</em> considers Gaussian <em>regions</em> of space, rather than infinitesimal points. This provides a natural way to input a "region" of space as query to a coordinate-based neural network, allowing the network to reason about sampling and aliasing. The expected value of each positional encoding component has a simple closed form:
-                </p>
-                <p style="text-align:center;">
-                    <image src="img/ipe_eqn_under_pad.png" height="30px" class="img-responsive">
-                </p>
-                <video id="v0" width="100%" autoplay loop muted>
-                  <source src="img/ipe_anim_horiz.mp4" type="video/mp4" />
-                </video>
-                <p class="text-justify">
-                    We can see that when considering a wider region, the higher frequency features automatically shrink toward zero, providing the network with lower-frequency inputs. As the region narrows, these features converge to the original positional encoding.
-                </p>
-            </div>
-        </div>
-            
-
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Mip-NeRF
-                </h3>
-                <p class="text-justify">
-                    We use integrated positional encoding to train NeRF to generate anti-aliased renderings. Rather than casting an infinitesimal ray through each pixel, we instead cast a full 3D <em>cone</em>. For each queried point along a ray, we consider its associated 3D conical frustum. Two different cameras viewing the same point in space may result in vastly different conical frustums, as illustrated here in 2D:
-                </p>
-                <p style="text-align:center;">
-                    <image src="img/scales_toy.png" class="img-responsive" alt="scales">
-                </p>
-                <p class="text-justify">
-                    In order to pass this information through the NeRF network, we fit a multivariate Gaussian to the conical frustum and use the integrated positional encoding described above to create the input feature vector to the network. 
-                </p>
-            </div>
-        </div>
-            
-
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Results
-                </h3>
-                <p class="text-justify">
-                    We train NeRF and mip-NeRF on a dataset with images at four different resolutions. Normal NeRF (left) is not capable of learning to represent the same scene at multiple levels of detail, with blurring in close-up shots and aliasing in low resolution views, while mip-NeRF (right) both preserves sharp details in close-ups and correctly renders the zoomed-out images.
-                </p>                
-                <br>
-                <video id="v0" width="100%" autoplay loop muted controls>
-                  <source src="img/ship_sbs_path1.mp4" type="video/mp4" />
-                </video>
-                <video id="v0" width="100%" autoplay loop muted controls>
-                  <source src="img/chair_sbs_path1.mp4" type="video/mp4" />
-                </video>
-                <video id="v0" width="100%" autoplay loop muted controls>
-                  <source src="img/lego_sbs_path1.mp4" type="video/mp4" />
-                </video>
-                <video id="v0" width="100%" autoplay loop muted controls>
-                  <source src="img/mic_sbs_path1.mp4" type="video/mp4" />
-                </video>
-                <br><br>
-                <p class="text-justify">
-                    We can also manipulate the integrated positional encoding by using a larger or smaller radius than the true pixel footprint, exposing the continuous level of detail learned within a single network:
-                </p>     
-                <video id="v0" width="100%" autoplay loop muted controls>
-                  <source src="img/lego_radii_manip_slider_200p.mp4" type="video/mp4" />
-                </video>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Related links
-                </h3>
-                <p class="text-justify">
-                    <a href="https://en.wikipedia.org/wiki/Spatial_anti-aliasing">Wikipedia</a> provides an excellent introduction to spatial anti-aliasing techniques.
-                </p>
-                <p class="text-justify">
-                    Mipmaps were introduced by Lance Williams in his paper "Pyramidal Parametrics" (<a href="https://software.intel.com/sites/default/files/m/7/2/c/p1-williams.pdf">Williams (1983)</a>).
-                </p>
-                <p class="text-justify">
-                    <a href="https://dl.acm.org/doi/abs/10.1145/964965.808589">Amanatides (1984)</a> first proposed the idea of replacing rays with cones in computer graphics rendering. 
-                </p>
-                <p class="text-justify">
-                    The closely related concept of <em>ray differentials</em> (<a href="https://graphics.stanford.edu/papers/trd/">Igehy (1999)</a>) is used in most modern renderers to antialias textures and other material buffers during ray tracing.
-                </p>
-                <p class="text-justify">
-                    Cone tracing has been used along with prefiltered voxel-based representations of scene geometry for speeding up indirect illumination calculations in <a href="https://research.nvidia.com/sites/default/files/publications/GIVoxels-pg2011-authors.pdf">Crassin et al. (2011)</a>.
-                </p>
-                <p class="text-justify">
-                    Mip-NeRF was implemented on top of the <a href="https://github.com/google-research/google-research/tree/master/jaxnerf">JAXNeRF</a> codebase.
-                </p>
-            </div>
-        </div>
-        
-            
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Citation
-                </h3>
-                <div class="form-group col-md-10 col-md-offset-1">
-                    <textarea id="bibtex" class="form-control" readonly>
-@article{barron2021mipnerf,
-    title={Mip-NeRF: A Multiscale Representation 
-           for Anti-Aliasing Neural Radiance Fields},
-    author={Jonathan T. Barron and Ben Mildenhall and 
-            Matthew Tancik and Peter Hedman and 
-            Ricardo Martin-Brualla and Pratul P. Srinivasan},
-    journal={ICCV},
-    year={2021}
-}</textarea>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Acknowledgements
-                </h3>
-                <p class="text-justify">
-                We thank Janne Kontkanen and David Salesin for their comments on the text, Paul Debevec for constructive discussions, and Boyang Deng for JaxNeRF. 
-                    <br>
-                MT is funded by an NSF Graduate Fellowship.
-                    <br>
-                The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>.
-                </p>
-            </div>
-        </div>
+  <!-- ══════ HERO ══════ -->
+  <header class="hero">
+    <div class="hero-photo">
+      <img src="images/EshaSingh.jpg" alt="Esha Singh">
     </div>
+    <div class="hero-text">
+      <h1>Esha Singh</h1>
+      <p>
+        I am a Ph.D student in Computer Science at the University of California, San Diego, fortunately advised by <a href="https://sites.google.com/view/yianma/home">Prof. Yi-An Ma</a>. I also work closely with <a href="https://roseyu.com/">Prof. Rose Yu</a> and <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Prof. Yu-Xiang Wang</a>.
+      </p>
+      <p>
+        I spent my recent summers interning at Amazon Alexa AI (2025) and Cerebras (2024).
+      </p>
+      <p>
+        Prior to my doctoral studies, I earned my Masters at the <a href="https://cse.umn.edu/cs">University of Minnesota, Twin Cities</a>, advised by <a href="https://sunju.org/">Prof. Ju Sun</a> (GLOVEX lab). I also worked as a Research Assistant with <a href="https://ruizhang.umn.edu/">Prof. Rui Zhang</a> from 2019–2021. I completed my undergraduate degree at BITS Pilani, India.
+      </p>
+      <div class="hero-links">
+        <a href="mailto:e3singh@ucsd.edu">Email</a>
+        <a href="data/EshaSingh-CV.pdf">CV</a>
+        <a href="data/EshaSingh-bio.txt">Bio</a>
+        <a href="https://scholar.google.com/citations?user=8w_EDpgAAAAJ&hl=en">Scholar</a>
+        <a href="https://github.com/esha-singh/">Github</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- ══════ NEWS ══════ -->
+    <section>
+      <h2>News</h2>
+      <div class="news-item">
+        <span class="news-date">Feb 11, 2026</span>
+        <span>New preprint: <a href="https://arxiv.org/abs/2602.11346">Divide and Learn</a> — multi-objective combinatorial optimization at scale, now on arXiv!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Mar 8, 2024</span>
+        <span>Our <a href="https://neurips.cc/virtual/2024/workshop/84753">paper</a> accepted at Conference on Parsimony and Learning (CPAL 2025) @PMLR — see you at CoDA, Stanford!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Oct 11, 2024</span>
+        <span>Our <a href="https://neurips.cc/virtual/2024/workshop/84753">paper</a> was accepted to the ML &amp; Compression workshop @NeurIPS 2024!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jun 17, 2024</span>
+        <span>Joined Cerebras Systems Inc. as a Research Scientist Intern!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">May 30, 2024</span>
+        <span>Set to join UCSD in September 2024!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Oct 27, 2023</span>
+        <span>Paper accepted at M3L @NeurIPS 2023, New Orleans!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Oct 13, 2023</span>
+        <span>Will volunteer @NeurIPS 2023</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Sep 1, 2022</span>
+        <span>Joined UCSB</span>
+      </div>
+    </section>
+
+    <!-- ══════ RESEARCH ══════ -->
+    <section>
+      <h2>Research</h2>
+      <p class="research-intro">
+        I'm interested in statistical machine learning with applications to optimization, large language models, and foundation models. In the summer, I worked on compute-efficient unstructured sparsity training methods for language modeling tasks.
+      </p>
+
+      <div class="paper">
+        <div class="paper-thumb"><img src="images/divide_and_learn.png" alt="divide and learn"></div>
+        <div class="paper-info">
+          <div class="paper-title"><a href="https://arxiv.org/abs/2602.11346">Divide and Learn: Multi-Objective Combinatorial Optimization at Scale</a></div>
+          <div class="paper-authors"><strong>Esha Singh</strong>, Dongxia Wu, Chien-Yi Yang, Tajana Rosing, <a href="https://roseyu.com/">Rose Yu</a>, <a href="https://sites.google.com/view/yianma/home">Yi-An Ma</a></div>
+          <div class="paper-venue">arXiv Preprint, 2026</div>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2602.11346">Paper</a></div>
+          <p class="paper-desc">Reformulates multi-objective combinatorial optimization as online learning over decomposed decision spaces, achieving 80–98% of specialized solvers with two to three orders of magnitude improvement in sample and computational efficiency.</p>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-thumb"><img src="images/ambientnova.png" alt="ambient nova"></div>
+        <div class="paper-info">
+          <div class="paper-title"><a href="https://esha-singh.github.io/ambientnova/">Temporally Aligned Multi-Modality Video Generation for Ambient Sounds</a></div>
+          <div class="paper-authors"><strong>Esha Singh</strong></div>
+          <div class="paper-venue">Amazon Alexa+ AI, 2025 · Technical Report</div>
+          <div class="paper-links"><a href="https://esha-singh.github.io/ambientnova/">Project Blog</a></div>
+          <p class="paper-desc">Temporally aligned multi-modality video generation using latent diffusion models for ambient sounds. Work done as an Applied Scientist II Intern at Amazon Alexa+ AI, Bellevue, WA.</p>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-thumb"><img src="images/sparsity.png" alt="sparsity"></div>
+        <div class="paper-info">
+          <div class="paper-title"><a href="https://openreview.net/forum?id=8s8w7nwCuk">Empirical Upper Bounds for Unstructured Sparsity in Compute-Efficient Language Modeling</a></div>
+          <div class="paper-authors"><strong>Esha Singh</strong>, S. Bergsma, N. Dey, Joel Hestness, Gavia Gray</div>
+          <div class="paper-venue">NeurIPS 2024, Workshop on Machine Learning &amp; Compression</div>
+          <div class="paper-links"><a href="">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-thumb"><img src="images/twonn.png" alt="twonn"></div>
+        <div class="paper-info">
+          <div class="paper-title"><a href="https://openreview.net/forum?id=8s8w7nwCuk">Stable Minima Cannot Overfit in Univariate ReLU Networks: Generalization by Large Step Sizes</a></div>
+          <div class="paper-authors">D. Qiao, K. Zhang, <strong>Esha Singh</strong>, <a href="https://soudry.github.io/">Daniel Soudry</a>, <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Yu-Xiang Wang</a></div>
+          <div class="paper-venue">NeurIPS 2024 (Spotlight)</div>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2406.06838">Paper</a></div>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-thumb"><img src="images/losslandscape_moxco.png" alt="moxco"></div>
+        <div class="paper-info">
+          <div class="paper-title"><a href="https://openreview.net/forum?id=8s8w7nwCuk">MoXCo: How I learned to stop exploring and love my local minima?</a></div>
+          <div class="paper-authors"><strong>Esha Singh</strong>, <a href="https://scholar.google.com/citations?user=42D12TkAAAAJ&hl=en">Shoham Sabach</a>, <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Yu-Xiang Wang</a></div>
+          <div class="paper-venue">CPAL 2025 (PMLR) · NeurIPS 2023 (M3L Workshop)</div>
+          <div class="paper-links"><a href="https://openreview.net/forum?id=8s8w7nwCuk">Paper</a> <a href="https://neurips.cc/virtual/2023/workshop/66507">Poster</a></div>
+          <p class="paper-desc">Adaptive optimizers that expedite exploration with faster convergence while ensuring avoidance of over-exploitation, leading to convergence to good solutions.</p>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-thumb"><img src="images/survey.png" alt="survey"></div>
+        <div class="paper-info">
+          <div class="paper-title"><a href="https://spj.science.org/doi/10.34133/2021/9759016?permanently=true">Social Determinants of Health In the Era of Artificial Intelligence with Electronic Health Records: A Systematic Review</a></div>
+          <div class="paper-authors">A. Bompelli, Y. Wang, R. Wan, <strong>Esha Singh</strong>, Y. Zhou, L. Xu, D. Oniani, B. Singh, J. Balls-Berry, <a href="https://ruizhang.umn.edu/">Rui Zhang</a></div>
+          <div class="paper-venue">SPJ, AAAS, 2021</div>
+          <div class="paper-links"><a href="https://spj.science.org/doi/10.34133/2021/9759016?permanently=true">Paper</a> <a href="https://arxiv.org/abs/2102.04216">arXiv</a></div>
+          <p class="paper-desc">A scoping review of SBDH factors, the relationship between SBDH and diseases, NLP techniques to extract SBDH from clinical notes, and predictive models using SBDH factors.</p>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-thumb"><img src="images/NLU.png" alt="conversational agent"></div>
+        <div class="paper-info">
+          <div class="paper-title"><a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-022-01888-5">A conversational agent system for dietary supplements use</a></div>
+          <div class="paper-authors"><strong>Esha Singh</strong>, A. Bompelli, R. Wan, J. Bian, S. Pakhomov, <a href="https://ruizhang.umn.edu/">Rui Zhang</a></div>
+          <div class="paper-venue">Springer Nature, BMC, 2022</div>
+          <div class="paper-links"><a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-022-01888-5">Journal</a> <a href="https://arxiv.org/abs/2104.01543">arXiv</a></div>
+          <p class="paper-desc">Develops the first Conversational Agent system for Dietary Supplement use using the MindMeld framework and iDISK knowledge base.</p>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-thumb"><img src="images/everydayliving.png" alt="everyday living AI"></div>
+        <div class="paper-info">
+          <div class="paper-title"><a href="https://aclanthology.org/2021.dash-1.15/">Everyday Living Artificial Intelligence Hub</a></div>
+          <div class="paper-authors">R. Finzel, <strong>Esha Singh</strong>, <a href="https://nursing.umn.edu/our-faculty-staff/our-faculty/martin-michalowski">M. Michalowski</a>, <a href="https://cse.umn.edu/cs/maria-gini">M. Gini</a>, <a href="https://www.pharmacy.umn.edu/our-faculty-staff/our-faculty/serguei-pakhomov">S. Pakhomov</a></div>
+          <div class="paper-venue">NAACL 2021</div>
+          <div class="paper-links"><a href="https://aclanthology.org/2021.dash-1.15/">Proceedings</a> <a href="https://cse.umn.edu/cs/feature-stories/everyday-living-artificial-intelligence-hub-conference-paper">UMN Coverage</a></div>
+          <p class="paper-desc">A proof-of-concept framework for enhancing health and wellbeing via tailored wearable and Conversational Agent solutions for non-invasive monitoring and personalized interventions.</p>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-thumb"><img src="images/idisk.png" alt="idisk"></div>
+        <div class="paper-info">
+          <div class="paper-title"><a href="https://ieeexplore.ieee.org/document/9374355">Prototype Conversational Agent for Dietary Supplements</a></div>
+          <div class="paper-authors"><strong>Esha Singh</strong>, A. Bompelli, A. Yang, A. Wang, S. Pakhomov, R. Zhang</div>
+          <div class="paper-venue">IEEE ICHI 2020 <span class="oral">(Oral Presentation)</span></div>
+          <div class="paper-links"><a href="https://ieeexplore.ieee.org/document/9374355">Proceedings</a></div>
+          <p class="paper-desc">A prototype conversational agent system catered to resolve user queries regarding dietary supplements.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════ TEACHING ══════ -->
+    <section>
+      <h2>Teaching</h2>
+      <div class="teaching-list">
+        <p><a href="https://sites.cs.ucsb.edu/~yuxiangw/classes/CS165B-2023Fall/">Graduate Student Instructor, CS165B — Fall 2023</a></p>
+        <p><a href="https://sites.cs.ucsb.edu/~yuxiangw/classes/AICourse-2023Spring/">Graduate Student Instructor, CS165A — Spring 2023</a></p>
+        <p><a href="https://bionicvisionlab.org/teaching/2022-fall-cs181/">Graduate Student Instructor, CS181 — Fall 2022</a></p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    Source code from <a href="https://jonbarron.info/">Jon Barron's</a> website.
+  </footer>
+
 </body>
 </html>
