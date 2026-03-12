@@ -9,7 +9,7 @@
   <style>
     :root {
       --text-primary: #1a1a1a;
-      --text-secondary: #4a4a4a;
+      --text-secondary: #222;
       --text-muted: #6b7280;
       --accent: #2d8659;
       --accent-hover: #236b47;
@@ -42,7 +42,7 @@
 
     /* ── NAV ── */
     nav {
-      max-width: 1100px;
+      max-width: 1320px;
       margin: 0 auto;
       padding: 20px 40px 0;
       display: flex;
@@ -70,7 +70,7 @@
 
     /* ── HERO ── */
     .hero {
-      max-width: 1100px;
+      max-width: 1320px;
       margin: 0 auto;
       padding: 40px 40px 40px;
       display: flex;
@@ -83,9 +83,9 @@
       width: 240px;
     }
     .hero-photo img {
-      width: 240px;
-      height: 240px;
-      object-fit: cover;
+      width: 100%;
+      max-width: 240px;
+      height: auto;
       border-radius: 50%;
       display: block;
     }
@@ -130,7 +130,7 @@
 
     /* ── SECTIONS ── */
     .container {
-      max-width: 1100px;
+      max-width: 1320px;
       margin: 0 auto;
       padding: 0 40px;
     }
@@ -174,7 +174,6 @@
       font-size: 1.1rem;
       color: var(--text-secondary);
       margin-bottom: 32px;
-      max-width: 780px;
     }
 
     .paper {
@@ -297,7 +296,7 @@
         Prior to my doctoral studies, I earned my Masters at the <a href="https://cse.umn.edu/cs">University of Minnesota, Twin Cities</a>, advised by <a href="https://sunju.org/">Prof. Ju Sun</a> (GLOVEX lab). I also worked as a Research Assistant with <a href="https://ruizhang.umn.edu/">Prof. Rui Zhang</a> from 2019–2021. I completed my undergraduate degree at BITS Pilani, India.
       </p>
       <div class="hero-links">
-        <a href="mailto:e3singh@ucsd.edu">Email</a>
+        <a href="/cdn-cgi/l/email-protection#f491c7879d9a939cb481978790da919081">Email</a>
         <a href="data/EshaSingh-CV.pdf">CV</a>
         <a href="data/EshaSingh-bio.txt">Bio</a>
         <a href="https://scholar.google.com/citations?user=8w_EDpgAAAAJ&hl=en">Scholar</a>
@@ -349,7 +348,7 @@
     <section>
       <h2>Research</h2>
       <p class="research-intro">
-        I'm interested in statistical machine learning with applications to optimization, large language models, and foundation models. In the summer, I worked on compute-efficient unstructured sparsity training methods for language modeling tasks.
+        My research develops principled and scalable algorithms for modern machine learning, centering on <strong>generative models</strong>, <strong>optimization theory</strong>, and <strong>large language models</strong>. I am driven by a core question: <em>how can we design learning algorithms that are simultaneously theoretically grounded, computationally efficient, and practically impactful?</em>
       </p>
 
       <div class="paper">
@@ -463,8 +462,4 @@
   </div>
 
   <footer>
-    Source code from <a href="https://jonbarron.info/">Jon Barron's</a> website.
-  </footer>
-
-</body>
-</html>
+    Source code from <a href="https://jonbarron.info/">Jon Barron's</a>
