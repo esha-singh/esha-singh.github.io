@@ -3,316 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#faf6ee">
   <title>Esha Singh</title>
+  <meta name="description" content="Esha Singh — Ph.D. student at UC San Diego working on generative models, optimization theory, and large language models.">
+  <link rel="icon" href="images/favicon/favicon.ico">
+  <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --text-primary: #1a1a1a;
-      --text-secondary: #222;
-      --text-muted: #6b7280;
-      --accent: #2d8659;
-      --accent-hover: #236b47;
-      --accent-green: #2d8659;
-      --accent-purple: #7c3aed;
-      --accent-blue: #2563eb;
-      --bg: #f8f9fc;
-      --card-bg: #fff;
-      --border: #e0e2ea;
-      --highlight-bg: #ecfdf5;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text-primary);
-      font-size: 17px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    a:hover { color: var(--accent-hover); text-decoration: underline; }
-
-    /* ── NAV ── */
-    nav {
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 20px 40px 0;
-      display: flex;
-      justify-content: flex-end;
-      gap: 28px;
-    }
-    nav a {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      text-decoration: none;
-      padding-bottom: 2px;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s;
-    }
-    nav a:hover {
-      color: var(--text-primary);
-      text-decoration: none;
-      border-bottom-color: var(--accent-purple);
-    }
-    nav a.active {
-      color: var(--text-primary);
-      border-bottom-color: var(--accent-purple);
-    }
-
-    /* ── HERO ── */
-    .hero {
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 40px 40px 40px;
-      display: flex;
-      gap: 56px;
-      align-items: flex-start;
-    }
-
-    .hero-photo {
-      flex-shrink: 0;
-      width: 240px;
-    }
-    .hero-photo img {
-      width: 100%;
-      max-width: 240px;
-      height: auto;
-      border-radius: 50%;
-      display: block;
-    }
-
-    .hero-text h1 {
-      font-family: 'Source Serif 4', serif;
-      font-weight: 700;
-      font-size: 3rem;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 4px;
-    }
-
-    .hero-email {
-      font-size: 1rem;
-      margin-bottom: 18px;
-      color: var(--text-muted);
-    }
-    .hero-email a {
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-    .hero-email a:hover { color: var(--accent); }
-
-    .hero-text p {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      margin-bottom: 14px;
-    }
-
-    .hero-links {
-      margin-top: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .hero-links a {
-      display: inline-block;
-      padding: 6px 18px;
-      border: 1.5px solid var(--border);
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      transition: all 0.2s;
-    }
-    .hero-links a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      text-decoration: none;
-      background: var(--highlight-bg);
-    }
-
-    /* ── SECTIONS ── */
-    .container {
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    section { margin-bottom: 56px; }
-
-    h2 {
-      font-family: 'Source Serif 4', serif;
-      font-size: 1.9rem;
-      font-weight: 600;
-      margin-bottom: 24px;
-      letter-spacing: -0.01em;
-      padding-bottom: 10px;
-      border-bottom: 3px solid var(--accent);
-      display: inline-block;
-    }
-
-    /* Alternating cool tones on section headers */
-    section:nth-of-type(2) h2 { border-bottom-color: var(--accent-purple); }
-    section:nth-of-type(3) h2 { border-bottom-color: var(--accent-green); }
-
-    /* ── NEWS ── */
-    .news-item {
-      display: flex;
-      gap: 20px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 1.05rem;
-    }
-    .news-item:last-child { border-bottom: none; }
-    .news-date {
-      flex-shrink: 0;
-      width: 150px;
-      font-weight: 600;
-      color: var(--accent-purple);
-      font-size: 0.95rem;
-    }
-
-    /* ── RESEARCH ── */
-    .research-intro {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-    }
-
-    .paper {
-      display: flex;
-      gap: 28px;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border);
-      align-items: flex-start;
-    }
-    .paper:last-child { border-bottom: none; }
-
-    .paper-thumb {
-      flex-shrink: 0;
-      width: 160px;
-    }
-    .paper-thumb img {
-      width: 160px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-    }
-
-    .paper-info { flex: 1; }
-
-    .paper-title {
-      font-family: 'Source Serif 4', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.4;
-      margin-bottom: 6px;
-    }
-    .paper-title a { color: var(--text-primary); }
-    .paper-title a:hover { color: var(--accent); }
-
-    .paper-authors {
-      font-size: 0.98rem;
-      color: var(--text-secondary);
-      margin-bottom: 4px;
-    }
-    .paper-authors strong { color: var(--text-primary); }
-
-    .paper-venue {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--accent-green);
-      margin-bottom: 8px;
-    }
-    .paper-venue .oral { color: #dc2626; }
-
-    .paper-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-top: 6px;
-    }
-
-    .paper-links a {
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-right: 14px;
-      color: var(--accent-purple);
-    }
-    .paper-links a:hover { color: var(--accent); }
-
-    /* ── TEACHING ── */
-    .teaching-list {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-    }
-    .teaching-list p { margin-bottom: 8px; }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 40px 20px 30px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 700px) {
-      .hero {
-        flex-direction: column;
-        padding: 36px 20px 24px;
-        gap: 28px;
-      }
-      .hero-photo { width: 180px; }
-      .hero-photo img { width: 180px; height: 180px; }
-      .hero-text h1 { font-size: 2.2rem; }
-      .container { padding: 0 20px; }
-      .paper { flex-direction: column; gap: 14px; }
-      .paper-thumb { width: 100%; }
-      .paper-thumb img { width: 100%; max-width: 240px; height: auto; }
-      .news-item { flex-direction: column; gap: 2px; }
-      .news-date { width: auto; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 
   <!-- ══════ NAV ══════ -->
-  <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-  </nav>
+  <div class="nav-wrap">
+    <nav>
+      <a href="#home" class="nav-brand">Esha Singh</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="personal.html">Personal</a>
+      </div>
+    </nav>
+  </div>
 
   <!-- ══════ HERO ══════ -->
-  <header class="hero">
+  <header class="hero" id="home">
     <div class="hero-photo">
-      <img src="images/EshaSingh.jpg" alt="Esha Singh">
+      <img src="images/EshaSingh2.jpg" alt="Esha Singh">
     </div>
     <div class="hero-text">
       <h1>Esha Singh</h1>
       <p class="hero-email"><a href="mailto:e3singh@ucsd.edu">e3singh@ucsd.edu</a></p>
-      <p>
-        I am a forth year Ph.D student at University of California, San Diego (CSE), fortunately advised by <a href="https://sites.google.com/view/yianma/home">Prof. Yi-An Ma</a>. I also work closely with <a href="https://roseyu.com/">Prof. Rose Yu</a> and <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Prof. Yu-Xiang Wang</a>.
+      <p class="bio">
+        I am a fourth-year Ph.D. student at the University of California, San Diego (CSE), fortunately advised by <a href="https://sites.google.com/view/yianma/home">Prof. Yi-An Ma</a>. I also work closely with <a href="https://roseyu.com/">Prof. Rose Yu</a> and <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Prof. Yu-Xiang Wang</a>.
       </p>
-      <p>
-        I spent my recent summers interning at Amazon Alexa AI (2025) and Cerebras (2024).
+      <p class="bio">
+        I spent my recent summers interning at Amazon Alexa+ AI (2025) and Cerebras Systems (2024).
       </p>
-      <p>
-        Prior to my doctoral studies, I earned my Masters at the <a href="https://cse.umn.edu/cs">University of Minnesota, Twin Cities</a>, advised by <a href="https://sunju.org/">Prof. Ju Sun</a> (GLOVEX lab). I also worked as a Research Assistant with <a href="https://ruizhang.umn.edu/">Prof. Rui Zhang</a> from 2019–2021. I completed my undergraduate degree at BITS Pilani, India.
+      <p class="bio">
+        Prior to my doctoral studies, I earned my Master's at the <a href="https://cse.umn.edu/cs">University of Minnesota, Twin Cities</a>, advised by <a href="https://sunju.org/">Prof. Ju Sun</a> (GLOVEX lab). I also worked as a Research Assistant with <a href="https://ruizhang.umn.edu/">Prof. Rui Zhang</a> from 2019–2021, and completed my undergraduate degree at BITS Pilani.
       </p>
       <div class="hero-links">
         <a href="mailto:e3singh@ucsd.edu">Email</a>
         <a href="data/EshaSingh-CV.pdf">CV</a>
-        <a href="data/EshaSingh-bio.txt">Bio</a>
-        <a href="https://scholar.google.com/citations?user=8w_EDpgAAAAJ&hl=en">Scholar</a>
-        <a href="https://github.com/esha-singh/">Github</a>
+        <a href="https://scholar.google.com/citations?user=8w_EDpgAAAAJ&hl=en">Google Scholar</a>
+        <a href="https://github.com/esha-singh/">GitHub</a>
       </div>
     </div>
   </header>
@@ -320,62 +59,42 @@
   <div class="container">
 
     <!-- ══════ NEWS ══════ -->
-    <section>
+    <section id="news">
       <h2>News</h2>
       <div class="news-item">
-        <span class="news-date">Feb 11, 2026</span>
-        <span>New preprint: <a href="https://arxiv.org/abs/2602.11346">Divide and Learn</a> — multi-objective combinatorial optimization at scale, accepted at ICML 2026!</span>
+        <span class="news-date">Jul 2026</span>
+        <span>Presenting my work at <strong>ICML 2026</strong>, Seoul!</span>
       </div>
       <div class="news-item">
-        <span class="news-date">Mar 8, 2024</span>
-        <span>Our <a href="https://neurips.cc/virtual/2024/workshop/84753">paper</a> accepted at Conference on Parsimony and Learning (CPAL 2025) @PMLR — see you at CoDA, Stanford!</span>
+        <span class="news-date">Jun 2026</span>
+        <span>Started as Applied Scientist Intern II at <strong>AWS AGI</strong>!</span>
       </div>
       <div class="news-item">
-        <span class="news-date">Oct 11, 2024</span>
-        <span>Our <a href="https://neurips.cc/virtual/2024/workshop/84753">paper</a> was accepted to the ML &amp; Compression workshop @NeurIPS 2024!</span>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Jun 17, 2024</span>
-        <span>Joined Cerebras Systems Inc. as a Research Scientist Intern!</span>
-      </div>
-      <div class="news-item">
-        <span class="news-date">May 30, 2024</span>
-        <span>Set to join UCSD in September 2024!</span>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Oct 27, 2023</span>
-        <span>Paper accepted at M3L @NeurIPS 2023, New Orleans!</span>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Oct 13, 2023</span>
-        <span>Will volunteer @NeurIPS 2023</span>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Sep 1, 2022</span>
-        <span>Joined UCSB</span>
+        <span class="news-date">Feb 2026</span>
+        <span>New preprint: <a href="https://arxiv.org/abs/2602.11346">Divide and Learn</a> — multi-objective combinatorial optimization at scale, accepted at <strong>ICML 2026</strong>!</span>
       </div>
     </section>
 
-    <!-- ══════ RESEARCH ══════ -->
-    <section>
+    <!-- ══════ PUBLICATIONS ══════ -->
+    <section id="publications">
       <h2>Selected Publications</h2>
       <p class="research-intro">
         My research develops principled and scalable algorithms for modern machine learning, centering on <strong>generative models</strong>, <strong>optimization theory</strong>, and <strong>large language models</strong>. I am driven by a core question: <em>how can we design learning algorithms that are simultaneously theoretically grounded, computationally efficient, and practically impactful?</em>
       </p>
 
       <div class="paper">
-        <div class="paper-thumb"><img src="images/divide_and_learn.png" alt="divide and learn"></div>
+        <div class="paper-thumb"><img src="images/divide_and_learn.png" alt="Divide and Learn"></div>
         <div class="paper-info">
           <div class="paper-title"><a href="https://arxiv.org/abs/2602.11346">Divide and Learn: Multi-Objective Combinatorial Optimization at Scale</a></div>
           <div class="paper-authors"><strong>Esha Singh</strong>, Dongxia Wu, Chien-Yi Yang, Tajana Rosing, <a href="https://roseyu.com/">Rose Yu</a>, <a href="https://sites.google.com/view/yianma/home">Yi-An Ma</a></div>
-          <div class="paper-venue">ICML, 2026</div>
+          <div class="paper-venue">ICML 2026</div>
           <div class="paper-links"><a href="https://arxiv.org/abs/2602.11346">Paper</a></div>
           <p class="paper-desc">Reformulates multi-objective combinatorial optimization as online learning over decomposed decision spaces, achieving 80–98% of specialized solvers with two to three orders of magnitude improvement in sample and computational efficiency.</p>
         </div>
       </div>
 
       <div class="paper">
-        <div class="paper-thumb"><img src="images/ambientnova.png" alt="ambient nova"></div>
+        <div class="paper-thumb"><img src="images/ambientnova.png" alt="AmbientNova"></div>
         <div class="paper-info">
           <div class="paper-title"><a href="https://esha-singh.github.io/ambientnova/">Temporally Aligned Multi-Modality Video Generation for Ambient Sounds</a></div>
           <div class="paper-authors"><strong>Esha Singh</strong></div>
@@ -386,29 +105,29 @@
       </div>
 
       <div class="paper">
-        <div class="paper-thumb"><img src="images/sparsity.png" alt="sparsity"></div>
+        <div class="paper-thumb"><img src="images/sparsity.png" alt="Unstructured sparsity"></div>
         <div class="paper-info">
           <div class="paper-title"><a href="https://openreview.net/forum?id=8s8w7nwCuk">Empirical Upper Bounds for Unstructured Sparsity in Compute-Efficient Language Modeling</a></div>
           <div class="paper-authors"><strong>Esha Singh</strong>, S. Bergsma, N. Dey, Joel Hestness, Gavia Gray</div>
-          <div class="paper-venue">NeurIPS 2024, Workshop on Machine Learning &amp; Compression</div>
-          <div class="paper-links"><a href="">Paper</a></div>
+          <div class="paper-venue">NeurIPS 2024 · Workshop on Machine Learning &amp; Compression</div>
+          <div class="paper-links"><a href="https://openreview.net/forum?id=8s8w7nwCuk">Paper</a></div>
         </div>
       </div>
 
       <div class="paper">
-        <div class="paper-thumb"><img src="images/twonn.png" alt="twonn"></div>
+        <div class="paper-thumb"><img src="images/twonn.png" alt="Stable minima in ReLU networks"></div>
         <div class="paper-info">
-          <div class="paper-title"><a href="https://openreview.net/forum?id=8s8w7nwCuk">Stable Minima Cannot Overfit in Univariate ReLU Networks: Generalization by Large Step Sizes</a></div>
+          <div class="paper-title"><a href="https://arxiv.org/abs/2406.06838">Stable Minima Cannot Overfit in Univariate ReLU Networks: Generalization by Large Step Sizes</a></div>
           <div class="paper-authors">D. Qiao, K. Zhang, <strong>Esha Singh</strong>, <a href="https://soudry.github.io/">Daniel Soudry</a>, <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Yu-Xiang Wang</a></div>
-          <div class="paper-venue">NeurIPS 2024 (Spotlight)</div>
+          <div class="paper-venue">NeurIPS 2024 <span class="spotlight">(Spotlight)</span></div>
           <div class="paper-links"><a href="https://arxiv.org/abs/2406.06838">Paper</a></div>
         </div>
       </div>
 
       <div class="paper">
-        <div class="paper-thumb"><img src="images/losslandscape_moxco.png" alt="moxco"></div>
+        <div class="paper-thumb"><img src="images/losslandscape_moxco.png" alt="MoXCo"></div>
         <div class="paper-info">
-          <div class="paper-title"><a href="https://openreview.net/forum?id=8s8w7nwCuk">MoXCo: How I learned to stop exploring and love my local minima?</a></div>
+          <div class="paper-title"><a href="https://openreview.net/forum?id=8s8w7nwCuk">MoXCo: How I Learned to Stop Exploring and Love My Local Minima</a></div>
           <div class="paper-authors"><strong>Esha Singh</strong>, <a href="https://scholar.google.com/citations?user=42D12TkAAAAJ&hl=en">Shoham Sabach</a>, <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Yu-Xiang Wang</a></div>
           <div class="paper-venue">CPAL 2025 (PMLR) · NeurIPS 2023 (M3L Workshop)</div>
           <div class="paper-links"><a href="https://openreview.net/forum?id=8s8w7nwCuk">Paper</a> <a href="https://neurips.cc/virtual/2023/workshop/66507">Poster</a></div>
@@ -417,9 +136,9 @@
       </div>
 
       <div class="paper">
-        <div class="paper-thumb"><img src="images/survey.png" alt="survey"></div>
+        <div class="paper-thumb"><img src="images/survey.png" alt="Social determinants of health survey"></div>
         <div class="paper-info">
-          <div class="paper-title"><a href="https://spj.science.org/doi/10.34133/2021/9759016?permanently=true">Social Determinants of Health In the Era of Artificial Intelligence with Electronic Health Records: A Systematic Review</a></div>
+          <div class="paper-title"><a href="https://spj.science.org/doi/10.34133/2021/9759016?permanently=true">Social Determinants of Health in the Era of Artificial Intelligence with Electronic Health Records: A Systematic Review</a></div>
           <div class="paper-authors">A. Bompelli, Y. Wang, R. Wan, <strong>Esha Singh</strong>, Y. Zhou, L. Xu, D. Oniani, B. Singh, J. Balls-Berry, <a href="https://ruizhang.umn.edu/">Rui Zhang</a></div>
           <div class="paper-venue">SPJ, AAAS, 2021</div>
           <div class="paper-links"><a href="https://spj.science.org/doi/10.34133/2021/9759016?permanently=true">Paper</a> <a href="https://arxiv.org/abs/2102.04216">arXiv</a></div>
@@ -428,18 +147,18 @@
       </div>
 
       <div class="paper">
-        <div class="paper-thumb"><img src="images/NLU.png" alt="conversational agent"></div>
+        <div class="paper-thumb"><img src="images/NLU.png" alt="Conversational agent"></div>
         <div class="paper-info">
-          <div class="paper-title"><a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-022-01888-5">A conversational agent system for dietary supplements use</a></div>
+          <div class="paper-title"><a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-022-01888-5">A Conversational Agent System for Dietary Supplements Use</a></div>
           <div class="paper-authors"><strong>Esha Singh</strong>, A. Bompelli, R. Wan, J. Bian, S. Pakhomov, <a href="https://ruizhang.umn.edu/">Rui Zhang</a></div>
           <div class="paper-venue">Springer Nature, BMC, 2022</div>
           <div class="paper-links"><a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-022-01888-5">Journal</a> <a href="https://arxiv.org/abs/2104.01543">arXiv</a></div>
-          <p class="paper-desc">Develops the first Conversational Agent system for Dietary Supplement use using the MindMeld framework and iDISK knowledge base.</p>
+          <p class="paper-desc">Develops the first Conversational Agent system for dietary supplement use using the MindMeld framework and the iDISK knowledge base.</p>
         </div>
       </div>
 
       <div class="paper">
-        <div class="paper-thumb"><img src="images/everydayliving.png" alt="everyday living AI"></div>
+        <div class="paper-thumb"><img src="images/everydayliving.png" alt="Everyday Living AI Hub"></div>
         <div class="paper-info">
           <div class="paper-title"><a href="https://aclanthology.org/2021.dash-1.15/">Everyday Living Artificial Intelligence Hub</a></div>
           <div class="paper-authors">R. Finzel, <strong>Esha Singh</strong>, <a href="https://nursing.umn.edu/our-faculty-staff/our-faculty/martin-michalowski">M. Michalowski</a>, <a href="https://cse.umn.edu/cs/maria-gini">M. Gini</a>, <a href="https://www.pharmacy.umn.edu/our-faculty-staff/our-faculty/serguei-pakhomov">S. Pakhomov</a></div>
@@ -450,7 +169,7 @@
       </div>
 
       <div class="paper">
-        <div class="paper-thumb"><img src="images/idisk.png" alt="idisk"></div>
+        <div class="paper-thumb"><img src="images/idisk.png" alt="iDISK"></div>
         <div class="paper-info">
           <div class="paper-title"><a href="https://ieeexplore.ieee.org/document/9374355">Prototype Conversational Agent for Dietary Supplements</a></div>
           <div class="paper-authors"><strong>Esha Singh</strong>, A. Bompelli, A. Yang, A. Wang, S. Pakhomov, R. Zhang</div>
@@ -459,12 +178,46 @@
           <p class="paper-desc">A prototype conversational agent system catered to resolve user queries regarding dietary supplements.</p>
         </div>
       </div>
+
+      <p class="full-list"><a href="https://scholar.google.com/citations?user=8w_EDpgAAAAJ&hl=en">Full list on Google Scholar &rarr;</a></p>
     </section>
 
     <!-- ══════ TEACHING ══════ -->
-    <section>
+    <section id="teaching">
       <h2>Teaching</h2>
       <div class="teaching-list">
-        <p><a href="https://sites.cs.ucsb.edu/~yuxiangw/classes/CS165B-2023Fall/">Graduate Student Instructor, CS165B — Fall 2023</a></p>
-        <p><a href="https://sites.cs.ucsb.edu/~yuxiangw/classes/AICourse-2023Spring/">Graduate Student Instructor, CS165A — Spring 2023</a></p>
-        <p><a href="https://bionicvisionlab.org/teaching/2022-fall-cs181/">Graduate Student Instructor, CS181 — Fall 2022<
+        <p><a href="https://sites.cs.ucsb.edu/~yuxiangw/classes/CS165B-2023Fall/">Graduate Student Instructor, CS165B</a> <span class="term">— Fall 2023</span></p>
+        <p><a href="https://sites.cs.ucsb.edu/~yuxiangw/classes/AICourse-2023Spring/">Graduate Student Instructor, CS165A</a> <span class="term">— Spring 2023</span></p>
+        <p><a href="https://bionicvisionlab.org/teaching/2022-fall-cs181/">Graduate Student Instructor, CS181</a> <span class="term">— Fall 2022</span></p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ══════ FOOTER ══════ -->
+  <footer>
+    © <span id="year">2026</span> Esha Singh · UC San Diego
+  </footer>
+
+  <script>
+    // Keep footer year current
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll-spy: highlight the nav link for the section in view
+    const navLinks = document.querySelectorAll(".nav-links a");
+    const sections = [...navLinks].map(a => document.querySelector(a.getAttribute("href")));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+
+    sections.forEach(sec => sec && observer.observe(sec));
+  </script>
+
+</body>
+</html>
