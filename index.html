@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="stylesheet.css?v=4">
+  <link rel="stylesheet" href="stylesheet.css?v=22">
 </head>
 <body>
 
@@ -23,10 +23,9 @@
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#news">News</a>
-        <a href="#publications">Publications</a>
-        <a href="#mentorship">Mentorship</a>
-        <a href="#service">Service</a>
-        <a href="#teaching">Teaching</a>
+        <a href="#research">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="blog.html">Blog</a>
         <a href="personal.html">Personal</a>
       </div>
     </nav>
@@ -41,19 +40,23 @@
       <h1>Esha Singh</h1>
       <p class="hero-email"><a href="mailto:e3singh@ucsd.edu">e3singh@ucsd.edu</a></p>
       <p class="bio">
-        I am a fourth-year Ph.D. student at the University of California, San Diego (CSE), fortunately advised by <a href="https://sites.google.com/view/yianma/home">Prof. Yi-An Ma</a>. I also work closely with <a href="https://roseyu.com/">Prof. Rose Yu</a> and <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Prof. Yu-Xiang Wang</a>.
+        I am a Ph.D. student in CSE at UC San Diego, advised by <a href="https://sites.google.com/view/yianma/home">Prof. Yi-An Ma</a>, and I work closely with <a href="https://roseyu.com/">Prof. Rose Yu</a> and <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Prof. Yu-Xiang Wang</a>.
       </p>
       <p class="bio">
-        I spent my recent summers interning at Amazon Alexa+ AI (2025) and Cerebras Systems (2024).
+        Previously, I was an Applied Scientist Intern at AWS AGI Foundations (summer 2026) and Amazon Alexa+ AI (summer 2025), and interned at Cerebras (summer 2024).
       </p>
       <p class="bio">
-        Prior to my doctoral studies, I earned my Master's at the <a href="https://cse.umn.edu/cs">University of Minnesota, Twin Cities</a>, advised by <a href="https://sunju.org/">Prof. Ju Sun</a> (GLOVEX lab). I also worked as a Research Assistant with <a href="https://ruizhang.umn.edu/">Prof. Rui Zhang</a> from 2019–2021, and completed my undergraduate degree at BITS Pilani.
+        Before UCSD, I did my Master's at the <a href="https://cse.umn.edu/cs">University of Minnesota</a> with <a href="https://sunju.org/">Prof. Ju Sun</a> and <a href="https://ruizhang.umn.edu/">Prof. Rui Zhang</a>, and my undergrad at BITS Pilani.
+      </p>
+      <p class="bio">
+        Feel free to <a href="mailto:e3singh@ucsd.edu">reach out</a> if you'd like to collaborate or just chat!
       </p>
       <div class="hero-links">
         <a href="mailto:e3singh@ucsd.edu">Email</a>
         <a href="data/EshaSingh-CV.pdf">CV</a>
         <a href="https://scholar.google.com/citations?user=8w_EDpgAAAAJ&hl=en">Google Scholar</a>
         <a href="https://github.com/esha-singh/">GitHub</a>
+        <a href="blog.html">Blog</a>
       </div>
     </div>
   </header>
@@ -64,8 +67,16 @@
     <section id="news">
       <h2>News</h2>
       <div class="news-item">
+        <span class="news-date">Nov 2026</span>
+        <span>Attending <a href="https://aiinstitutes.org/event/save-the-date-sail-2026/">SAIL 2026</a> (Summit for AI Institutes Leadership) in San Diego!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Sep 2026</span>
+        <span>New preprint: <a href="#paper-steer">Learning Where to Steer Noise</a>.</span>
+      </div>
+      <div class="news-item">
         <span class="news-date">Jul 2026</span>
-        <span>Presenting my work at <strong>ICML 2026</strong>, Seoul!</span>
+        <span>Presenting <a href="#paper-dnl">Divide and Learn</a> at <strong>ICML 2026</strong>, Seoul!</span>
       </div>
       <div class="news-item">
         <span class="news-date">Jun 2026</span>
@@ -73,51 +84,87 @@
       </div>
       <div class="news-item">
         <span class="news-date">Feb 2026</span>
-        <span>New preprint: <a href="https://arxiv.org/abs/2602.11346">Divide and Learn</a>: Multi-objective Combinatorial Optimization at Scale, accepted at <strong>ICML 2026</strong>!</span>
+        <span><a href="https://arxiv.org/abs/2602.11346">Divide and Learn</a>: Multi-objective Combinatorial Optimization at Scale, accepted at <strong>ICML 2026</strong>!</span>
+      </div>
+    </section>
+
+    <!-- ══════ RESEARCH ══════ -->
+    <section id="research">
+      <h2>Research</h2>
+      <p class="research-intro tight">
+        My research focuses on building principled and scalable algorithms for generative models and large language models, driven by a core question: <em>how can we design learning algorithms that are simultaneously theoretically grounded, computationally efficient, and practically impactful?</em>
+      </p>
+      <p class="research-intro wide-p">
+        Recently, I have worked on steering flow and diffusion models efficiently, finding the few directions in noise space that matter and developing guidance approaches that are both manifold-preserving and Pareto-aware. Currently, I am exploring one-step diffusion and agentic problems, where efficient generation and decision-making must go hand in hand.
+      </p>
+      <div class="topics">
+        <div class="topic">
+          <h3>Generative models &amp; test-time steering</h3>
+          <p>Generative modeling for multimodal audio and video, and efficient reasoning.</p>
+          <div class="chips">
+            <a class="chip" href="#paper-steer">Learning Where to Steer Noise</a>
+            <a class="chip" href="#paper-ambient">AmbientNova</a>
+          </div>
+        </div>
+        <div class="topic">
+          <h3>Multi-objective &amp; combinatorial optimization</h3>
+          <p>Finding Pareto-optimal trade-offs at scale, with orders-of-magnitude better sample efficiency.</p>
+          <div class="chips">
+            <a class="chip" href="#paper-dnl">Divide and Learn <span>ICML 2026</span></a>
+            <a class="chip" href="#paper-steer">Learning Where to Steer Noise</a>
+          </div>
+        </div>
+        <div class="topic">
+          <h3>Optimization theory &amp; generalization</h3>
+          <p>Why training dynamics find solutions that generalize, and optimizers that exploit this.</p>
+          <div class="chips">
+            <a class="chip" href="#paper-minima">Stable Minima <span>NeurIPS Spotlight</span></a>
+            <a class="chip" href="#paper-moxco">MoXCo <span>PMLR 2025</span></a>
+          </div>
+        </div>
+        <div class="topic">
+          <h3>Efficient large language models</h3>
+          <p>Making LLM training and inference cheaper without giving up quality.</p>
+          <div class="chips">
+            <a class="chip" href="#paper-sparsity">Unstructured Sparsity <span>NeurIPS</span></a>
+            <span class="chip">Speculative decoding <span>AWS AGI</span></span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ══════ PUBLICATIONS ══════ -->
     <section id="publications">
       <h2>Selected Publications</h2>
-      <p class="research-intro">
-        My research develops principled and scalable algorithms for modern machine learning, centering on <strong>generative models</strong>, <strong>optimization theory</strong>, and <strong>large language models</strong>. I am driven by a core question: <em>how can we design learning algorithms that are simultaneously theoretically grounded, computationally efficient, and practically impactful?</em>
-      </p>
+      <p class="pub-legend"><sup>*</sup>Equal contribution</p>
 
-      <div class="paper">
-        <div class="paper-thumb"><img src="images/divide_and_learn.png" alt="Divide and Learn"></div>
+      <div class="paper" id="paper-dnl">
+        <div class="paper-thumb"><video class="thumb-video" poster="images/dnl-thumb.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Divide and Learn building a Pareto front on a bi-objective TSP">
+          <source src="images/dnl-thumb.webm" type="video/webm">
+          <source src="images/dnl-thumb.mp4" type="video/mp4">
+        </video></div>
         <div class="paper-info">
           <div class="paper-title"><a href="https://arxiv.org/abs/2602.11346">Divide and Learn: Multi-Objective Combinatorial Optimization at Scale</a></div>
           <div class="paper-authors"><strong>Esha Singh</strong>, Dongxia Wu, Chien-Yi Yang, Tajana Rosing, <a href="https://roseyu.com/">Rose Yu</a>, <a href="https://sites.google.com/view/yianma/home">Yi-An Ma</a></div>
           <div class="paper-venue">ICML 2026</div>
-          <div class="paper-links"><a href="https://arxiv.org/abs/2602.11346">Paper</a> <a href="https://esha-singh.github.io/divide-n-learn/">Blog</a> <a href="https://github.com/Rose-STL-Lab/divide-n-learn">Code</a> <a href="">Poster</a></div>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2602.11346">Paper</a> <a href="https://esha-singh.github.io/divide-n-learn/">Blog</a> <a href="https://github.com/Rose-STL-Lab/divide-n-learn">Code</a> <a href="https://icml.cc/media/PosterPDFs/ICML%202026/63830.png?t=1782858502.3288946">Poster</a></div>
           <p class="paper-desc">Reformulates multi-objective combinatorial optimization as online learning over decomposed decision spaces, achieving 80–98% of specialized solvers with two to three orders of magnitude improvement in sample and computational efficiency.</p>
         </div>
       </div>
 
-      <div class="paper">
-        <div class="paper-thumb"><img src="images/ambientnova.png" alt="AmbientNova"></div>
+      <div class="paper" id="paper-steer">
+        <div class="paper-thumb"><div class="thumb-placeholder"><span>Noise-space<br>steering</span></div></div>
         <div class="paper-info">
-          <div class="paper-title"><a href="https://esha-singh.github.io/ambientnova/">Temporally Aligned Multi-Modality Video Generation for Ambient Sounds</a></div>
-          <div class="paper-authors"><strong>Esha Singh</strong></div>
-          <div class="paper-venue">Amazon Alexa+ AI, 2025 · Technical Report</div>
-          <div class="paper-links"><a href="https://esha-singh.github.io/ambientnova/">Project Blog</a></div>
-          <p class="paper-desc">Temporally aligned multi-modality video generation using latent diffusion models for ambient sounds. Work done as an Applied Scientist II Intern at Amazon Alexa+ AI, Bellevue, WA.</p>
+          <div class="paper-title"><a href="https://arxiv.org/abs/2609.38920">Learning Where to Steer Noise: Efficient Offline Multi-Objective Optimization with Generative Models</a></div>
+          <div class="paper-authors">Yuan Lu<sup>*</sup>, <strong>Esha Singh</strong><sup>*</sup>, <a href="https://sites.google.com/view/yianma/home">Yi-An Ma</a>, <a href="http://yusu.belkin-wang.org/">Yusu Wang</a></div>
+          <div class="paper-venue">Preprint, 2026</div>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2609.38920">Paper</a> <!-- TODO: add blog link --></div>
+          <p class="paper-desc">Steers only the initial noise of a generative model toward the Pareto front, using a few sensitive directions estimated once per task with a Recursive Feature Machine. Outranks the best prior generative method at a fraction of its sampling cost.</p>
         </div>
       </div>
 
-      <div class="paper">
-        <div class="paper-thumb"><img src="images/sparsity.png" alt="Unstructured sparsity"></div>
-        <div class="paper-info">
-          <div class="paper-title"><a href="https://openreview.net/forum?id=8s8w7nwCuk">Empirical Upper Bounds for Unstructured Sparsity in Compute-Efficient Language Modeling</a></div>
-          <div class="paper-authors"><strong>Esha Singh</strong>, S. Bergsma, N. Dey, Joel Hestness, Gavia Gray</div>
-          <div class="paper-venue">NeurIPS 2024 · Workshop on Machine Learning &amp; Compression</div>
-          <div class="paper-links"><a href="https://openreview.net/forum?id=8s8w7nwCuk">Paper</a></div>
-        </div>
-      </div>
-
-      <div class="paper">
-        <div class="paper-thumb"><img src="images/twonn.png" alt="Stable minima in ReLU networks"></div>
+      <div class="paper" id="paper-minima">
+        <div class="paper-thumb"><img src="images/fig-minima.png" alt="Stable minima in ReLU networks"></div>
         <div class="paper-info">
           <div class="paper-title"><a href="https://arxiv.org/abs/2406.06838">Stable Minima Cannot Overfit in Univariate ReLU Networks: Generalization by Large Step Sizes</a></div>
           <div class="paper-authors">D. Qiao, K. Zhang, <strong>Esha Singh</strong>, <a href="https://soudry.github.io/">Daniel Soudry</a>, <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Yu-Xiang Wang</a></div>
@@ -126,94 +173,74 @@
         </div>
       </div>
 
-      <div class="paper">
-        <div class="paper-thumb"><img src="images/losslandscape_moxco.png" alt="MoXCo"></div>
+      <div class="paper" id="paper-moxco">
+        <div class="paper-thumb"><video class="thumb-video" poster="images/moxco-thumb.jpg" autoplay muted loop playsinline preload="metadata" aria-label="MoXCo on the Ackley function: Phase 1 exploration, then Phase 2 commit">
+          <source src="images/moxco-thumb.webm" type="video/webm">
+          <source src="images/moxco-thumb.mp4" type="video/mp4">
+        </video></div>
         <div class="paper-info">
-          <div class="paper-title"><a href="https://openreview.net/forum?id=8s8w7nwCuk">MoXCo: How I Learned to Stop Exploring and Love My Local Minima</a></div>
+          <div class="paper-title"><a href="https://proceedings.mlr.press/v280/singh25a.html">MoXCo: How I Learned to Stop Exploring and Love My Local Minima</a></div>
           <div class="paper-authors"><strong>Esha Singh</strong>, <a href="https://scholar.google.com/citations?user=42D12TkAAAAJ&hl=en">Shoham Sabach</a>, <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Yu-Xiang Wang</a></div>
           <div class="paper-venue">CPAL 2025 (PMLR) · NeurIPS 2023 (M3L Workshop)</div>
-          <div class="paper-links"><a href="https://openreview.net/forum?id=8s8w7nwCuk">Paper</a> <a href="https://neurips.cc/virtual/2023/workshop/66507">Poster</a></div>
+          <div class="paper-links"><a href="https://proceedings.mlr.press/v280/singh25a.html">Paper</a> <a href="data/MoXCo_CPAL2025_Poster.pdf">Poster</a></div>
           <p class="paper-desc">Adaptive optimizers that expedite exploration with faster convergence while ensuring avoidance of over-exploitation, leading to convergence to good solutions.</p>
         </div>
       </div>
 
-      <div class="paper">
-        <div class="paper-thumb"><img src="images/survey.png" alt="Social determinants of health survey"></div>
+      <div class="paper" id="paper-ambient">
+        <div class="paper-thumb"><video class="thumb-video" poster="images/ambientnova-thumb.jpg" autoplay muted loop playsinline preload="metadata" aria-label="AmbientNova generated videos: waves, forest, rain, desert">
+          <source src="images/ambientnova-thumb.webm" type="video/webm">
+          <source src="images/ambientnova-thumb.mp4" type="video/mp4">
+        </video></div>
         <div class="paper-info">
-          <div class="paper-title"><a href="https://spj.science.org/doi/10.34133/2021/9759016?permanently=true">Social Determinants of Health in the Era of Artificial Intelligence with Electronic Health Records: A Systematic Review</a></div>
-          <div class="paper-authors">A. Bompelli, Y. Wang, R. Wan, <strong>Esha Singh</strong>, Y. Zhou, L. Xu, D. Oniani, B. Singh, J. Balls-Berry, <a href="https://ruizhang.umn.edu/">Rui Zhang</a></div>
-          <div class="paper-venue">SPJ, AAAS, 2021</div>
-          <div class="paper-links"><a href="https://spj.science.org/doi/10.34133/2021/9759016?permanently=true">Paper</a> <a href="https://arxiv.org/abs/2102.04216">arXiv</a></div>
-          <p class="paper-desc">A scoping review of SBDH factors, the relationship between SBDH and diseases, NLP techniques to extract SBDH from clinical notes, and predictive models using SBDH factors.</p>
+          <div class="paper-title"><a href="https://esha-singh.github.io/ambientnova/">Temporally Aligned Multi-Modality Video Generation for Ambient Sounds</a></div>
+          <div class="paper-authors"><strong>Esha Singh</strong></div>
+          <div class="paper-venue">Amazon Alexa+ AI, 2025 · Technical Report</div>
+          <div class="paper-links"><a href="https://esha-singh.github.io/ambientnova/">Blog</a></div>
+          <p class="paper-desc">Temporally aligned audio–video generation with latent diffusion models. Work done as an Applied Scientist II Intern at Amazon Alexa+ AI.</p>
         </div>
       </div>
 
-      <div class="paper">
-        <div class="paper-thumb"><img src="images/NLU.png" alt="Conversational agent"></div>
+      <div class="paper" id="paper-sparsity">
+        <div class="paper-thumb"><video class="thumb-video" poster="images/sparsity-thumb.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Unstructured sparsity, then pretraining advantage versus threshold">
+          <source src="images/sparsity-thumb.webm" type="video/webm">
+          <source src="images/sparsity-thumb.mp4" type="video/mp4">
+        </video></div>
         <div class="paper-info">
-          <div class="paper-title"><a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-022-01888-5">A Conversational Agent System for Dietary Supplements Use</a></div>
-          <div class="paper-authors"><strong>Esha Singh</strong>, A. Bompelli, R. Wan, J. Bian, S. Pakhomov, <a href="https://ruizhang.umn.edu/">Rui Zhang</a></div>
-          <div class="paper-venue">Springer Nature, BMC, 2022</div>
-          <div class="paper-links"><a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-022-01888-5">Journal</a> <a href="https://arxiv.org/abs/2104.01543">arXiv</a></div>
-          <p class="paper-desc">Develops the first Conversational Agent system for dietary supplement use using the MindMeld framework and the iDISK knowledge base.</p>
+          <div class="paper-title"><a href="https://openreview.net/forum?id=qOnKSqiGtR">Empirical Upper Bounds for Unstructured Sparsity in Compute-Efficient Language Modeling</a></div>
+          <div class="paper-authors"><strong>Esha Singh</strong>, S. Bergsma, N. Dey, Joel Hestness, Gavia Gray</div>
+          <div class="paper-venue">NeurIPS 2024 · Workshop on Machine Learning &amp; Compression</div>
+          <div class="paper-links"><a href="https://openreview.net/forum?id=qOnKSqiGtR">Paper</a> <a href="data/Sparsity_NeurIPS2024_MLC_Poster.pdf">Poster</a></div>
         </div>
       </div>
 
-      <div class="paper">
-        <div class="paper-thumb"><img src="images/everydayliving.png" alt="Everyday Living AI Hub"></div>
-        <div class="paper-info">
-          <div class="paper-title"><a href="https://aclanthology.org/2021.dash-1.15/">Everyday Living Artificial Intelligence Hub</a></div>
-          <div class="paper-authors">R. Finzel, <strong>Esha Singh</strong>, <a href="https://nursing.umn.edu/our-faculty-staff/our-faculty/martin-michalowski">M. Michalowski</a>, <a href="https://cse.umn.edu/cs/maria-gini">M. Gini</a>, <a href="https://www.pharmacy.umn.edu/our-faculty-staff/our-faculty/serguei-pakhomov">S. Pakhomov</a></div>
-          <div class="paper-venue">NAACL 2021</div>
-          <div class="paper-links"><a href="https://aclanthology.org/2021.dash-1.15/">Proceedings</a></div>
-          <p class="paper-desc">A proof-of-concept framework for enhancing health and wellbeing via tailored wearable and Conversational Agent solutions for non-invasive monitoring and personalized interventions.</p>
-        </div>
-      </div>
-
-      <div class="paper">
-        <div class="paper-thumb"><img src="images/idisk.png" alt="iDISK"></div>
-        <div class="paper-info">
-          <div class="paper-title"><a href="https://ieeexplore.ieee.org/document/9374355">Prototype Conversational Agent for Dietary Supplements</a></div>
-          <div class="paper-authors"><strong>Esha Singh</strong>, A. Bompelli, A. Yang, A. Wang, S. Pakhomov, R. Zhang</div>
-          <div class="paper-venue">IEEE ICHI 2020 <span class="oral">(Oral Presentation)</span></div>
-          <div class="paper-links"><a href="https://ieeexplore.ieee.org/document/9374355">Proceedings</a></div>
-          <p class="paper-desc">A prototype conversational agent system catered to resolve user queries regarding dietary supplements.</p>
-        </div>
-      </div>
-
-      <p class="full-list"><a href="https://scholar.google.com/citations?user=8w_EDpgAAAAJ&hl=en">Full list on Google Scholar &rarr;</a></p>
+      <p class="full-list"><a href="publications.html">All publications &rarr;</a></p>
     </section>
 
-    <!-- ══════ MENTORSHIP ══════ -->
-    <section id="mentorship">
-      <h2>Mentorship</h2>
-      <div class="teaching-list">
-        <p>Student program, <a href="https://ersp.cs.ucsb.edu/2022-2023-projects/team-yu-xiang-wang">ERSP</a> <span class="term">(2022–23)</span></p>
-        <p>Undergraduate students, NAB Challenge &amp; Zhang Lab <span class="term">(2020–21)</span></p>
-      </div>
-    </section>
-
-    <!-- ══════ SERVICE ══════ -->
-    <section id="service">
-      <h2>Service</h2>
-      <div class="teaching-list">
-        <p><span class="role">Reviewer</span></p>
-        <ul class="service-sublist">
-          <li>NeurIPS 2025–26, ICML 2026, ICLR 2025–26, SLLM 2025 &amp; ICLR FM-Wild 2025</li>
-          <li>Amazon Berlin ML Workshop 2025</li>
-          <li>HSSCOMMS, Springer Nature 2023</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ══════ TEACHING ══════ -->
+    <!-- ══════ TEACHING & SERVICE ══════ -->
     <section id="teaching">
-      <h2>Teaching</h2>
-      <div class="teaching-list">
-        <p><a href="https://sites.google.com/view/qipengliu/teaching/cse101-2025?authuser=0">Teaching Assistant, CSE101</a> <span class="term">Fall 2025</span></p>
-        <p><a href="https://cseweb.ucsd.edu/~yuxiangw/classes/CS165B-2023fall/">Graduate Student Instructor, CS165B</a> <span class="term">Fall 2023</span></p>
-        <p><a href="https://cseweb.ucsd.edu/~yuxiangw/classes/AICourse-2023Spring/">Graduate Student Instructor, CS165A</a> <span class="term">Spring 2023</span></p>
-        <p><a href="https://bionicvisionlab.org/teaching/2022-fall-cs181/">Graduate Student Instructor, CS181</a> <span class="term">Fall 2022</span></p>
+      <h2>Teaching &amp; Service</h2>
+      <div class="ts-grid">
+        <div class="teaching-list">
+          <p><span class="role">Teaching</span></p>
+          <p><a href="https://sites.google.com/view/qipengliu/teaching/cse101-2025?authuser=0">Teaching Assistant, CSE101</a> <span class="term">Fall 2025</span></p>
+          <p><a href="https://cseweb.ucsd.edu/~yuxiangw/classes/CS165B-2023fall/">Graduate Student Instructor, CS165B</a> <span class="term">Fall 2023</span></p>
+          <p><a href="https://cseweb.ucsd.edu/~yuxiangw/classes/AICourse-2023Spring/">Graduate Student Instructor, CS165A</a> <span class="term">Spring 2023</span></p>
+          <p><a href="https://bionicvisionlab.org/teaching/2022-fall-cs181/">Graduate Student Instructor, CS181</a> <span class="term">Fall 2022</span></p>
+        </div>
+        <div class="teaching-list">
+          <p><span class="role">Reviewing</span></p>
+          <ul class="service-sublist">
+            <li>NeurIPS 2025–26, ICML 2026, ICLR 2025–26</li>
+            <li>SLLM 2025, ICLR FM-Wild 2025, Amazon Berlin ML Workshop 2025</li>
+            <li>HSSCOMMS, Springer Nature 2023</li>
+          </ul>
+          <p class="mt"><span class="role">Mentorship</span></p>
+          <ul class="service-sublist">
+            <li><a href="https://ersp.cs.ucsb.edu/2022-2023-projects/team-yu-xiang-wang">ERSP</a> student program <span class="term">(2022–23)</span></li>
+            <li>Undergraduates, NAB Challenge &amp; Zhang Lab <span class="term">(2020–21)</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -225,13 +252,11 @@
   </footer>
 
   <script>
-    // Keep footer year current
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Scroll-spy: highlight the nav link for the section in view
-    const navLinks = document.querySelectorAll(".nav-links a");
-    const sections = [...navLinks].map(a => document.querySelector(a.getAttribute("href")));
-
+    // Scroll-spy: highlight the nav link for the section in view (in-page links only)
+    const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute("href")));
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -240,8 +265,11 @@
         }
       });
     }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
-
     sections.forEach(sec => sec && observer.observe(sec));
+    // Respect reduced-motion: show the poster frame instead of looping thumbnails
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll("video.thumb-video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
+    }
   </script>
 
 </body>

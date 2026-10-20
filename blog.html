@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#faf6ee">
+  <title>DeNoised Blog — Esha Singh</title>
+  <meta name="description" content="DeNoised Blog by Esha Singh: research, one denoising step at a time.">
+  <link rel="icon" href="images/favicon/favicon.ico">
+  <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css?v=9">
+</head>
+<body>
+
+  <!-- ══════ NAV ══════ -->
+  <div class="nav-wrap">
+    <nav>
+      <a href="index.html" class="nav-brand">Esha Singh</a>
+      <div class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#news">News</a>
+        <a href="index.html#research">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="personal.html">Personal</a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="container blog-page">
+    <header class="blog-header">
+      <h1>DeNoised Blog</h1>
+      <p>Research, one denoising step at a time: clean explanations of a noisy world.</p>
+    </header>
+
+    <!--
+      To add a post: copy one <a class="post"> block below, put the newest post first,
+      and update the date, title, summary, tags, thumbnail and link.
+    -->
+    <div class="posts">
+
+      <a class="post" href="https://arxiv.org/abs/2609.38920"><!-- TODO: swap in the blog URL when it is live -->
+        <div class="post-thumb"><div class="thumb-placeholder"><span>Noise-space<br>steering</span></div></div>
+        <div class="post-body">
+          <div class="post-meta">Sep 2026 · Preprint · blog coming soon</div>
+          <h2 class="post-title">Learning Where to Steer Noise</h2>
+          <p class="post-dek">Generative models for offline multi-objective optimization usually steer every sampling step. We steer only the starting noise, along the few directions the objectives actually care about.</p>
+          <div class="post-tags"><span>Diffusion</span><span>Multi-objective</span><span>Test-time steering</span></div>
+        </div>
+      </a>
+
+      <a class="post" href="https://esha-singh.github.io/divide-n-learn/">
+        <div class="post-thumb"><video class="thumb-video" poster="images/dnl-thumb.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Divide and Learn building a Pareto front on a bi-objective TSP">
+          <source src="images/dnl-thumb.webm" type="video/webm">
+          <source src="images/dnl-thumb.mp4" type="video/mp4">
+        </video></div>
+        <div class="post-body">
+          <div class="post-meta">Feb 2026 · ICML 2026</div>
+          <h2 class="post-title">Divide and Learn</h2>
+          <p class="post-dek">Multi-objective combinatorial optimization as online learning over decomposed decision spaces: 80–98% of specialized solvers at a tiny fraction of the cost.</p>
+          <div class="post-tags"><span>Combinatorial optimization</span><span>Online learning</span></div>
+        </div>
+      </a>
+
+      <a class="post" href="https://esha-singh.github.io/ambientnova/">
+        <div class="post-thumb"><video class="thumb-video" poster="images/ambientnova-thumb.jpg" autoplay muted loop playsinline preload="metadata" aria-label="AmbientNova generated videos: waves, forest, rain, desert">
+          <source src="images/ambientnova-thumb.webm" type="video/webm">
+          <source src="images/ambientnova-thumb.mp4" type="video/mp4">
+        </video></div>
+        <div class="post-body">
+          <div class="post-meta">2025 · Amazon Alexa+ AI</div>
+          <h2 class="post-title">AmbientNova</h2>
+          <p class="post-dek">Temporally aligned audio–video generation with latent diffusion models, from my Alexa+ AI internship.</p>
+          <div class="post-tags"><span>Latent diffusion</span><span>Multimodal</span></div>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- ══════ FOOTER ══════ -->
+  <footer>
+    © <span id="year">2026</span> Esha Singh · UC San Diego
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // Respect reduced-motion: show the poster frame instead of looping thumbnails
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll("video.thumb-video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
+    }
+  </script>
+
+</body>
+</html>
