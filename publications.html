@@ -56,12 +56,15 @@
     </article>
 
     <article class="pub">
-      <div class="pub-fig"><div class="thumb-placeholder"><span>Noise-space steering</span></div></div>
+      <div class="pub-fig"><video class="thumb-video" poster="images/steer-thumb.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Active-Subspace Noise Steering: noise is displaced once along a learned direction, and the same flow carries the designs toward the Pareto front">
+          <source src="images/steer-thumb.webm" type="video/webm">
+          <source src="images/steer-thumb.mp4" type="video/mp4">
+        </video></div>
       <div class="pub-info">
         <div class="paper-title"><a href="https://arxiv.org/abs/2609.38920">Learning Where to Steer Noise: Efficient Offline Multi-Objective Optimization with Generative Models</a></div>
         <div class="paper-authors">Yuan Lu<sup>*</sup>, <strong>Esha Singh</strong><sup>*</sup>, <a href="https://sites.google.com/view/yianma/home">Yi-An Ma</a>, <a href="http://yusu.belkin-wang.org/">Yusu Wang</a></div>
         <div class="paper-venue">Preprint, 2026</div>
-        <div class="paper-links"><a href="https://arxiv.org/abs/2609.38920">Paper</a> <!-- TODO: add Blog link --></div>
+        <div class="paper-links"><a href="https://arxiv.org/abs/2609.38920">Paper</a> <a href="learning-where-to-steer/">Blog</a> <a href="https://github.com/yuan-lu-bryan/learning-where-to-steer">Code</a></div>
       </div>
     </article>
 
@@ -165,6 +168,10 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+    // Respect reduced-motion: show the poster frame instead of looping thumbnails
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll("video.thumb-video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
+    }
   </script>
 
 </body>
